@@ -65,9 +65,13 @@ animate_plot <- function(x) {
             i), rep("best", i)), Survivalpoints = c(-GAmodel$mean[1:i], -GAmodel$best[1:i]))
 
         pl <- ggplot(temp, aes(x = Generation, y = Survivalpoints, group = Variable, 
-            colour = Variable)) + geom_line() + scale_x_continuous(limits = c(0, 
-            iter)) + scale_y_continuous(limits = c(0, 110)) + geom_line(y = max(temp$Survivalpoints), 
-            lty = 2) + annotate("text", x = 1, y = max(temp$Survivalpoints) + 
+            colour = Variable)) + 
+          geom_line() + 
+          scale_x_continuous(limits = c(0, 
+            iter)) + 
+          scale_y_continuous(limits = c(0, 110)) + geom_line(y = max(temp$Survivalpoints), 
+            lty = 2) + 
+          annotate("text", x = 1, y = max(temp$Survivalpoints) + 
             2, hjust = 0, size = 3, color = "black", label = paste("Best solution:", 
             max(temp$Survivalpoints))) + scale_colour_brewer(palette = "Set1") 
 
