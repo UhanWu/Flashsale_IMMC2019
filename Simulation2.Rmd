@@ -62,7 +62,7 @@ floor_prob <- tibble(
                     0,0,0,0,0))
 
 floor_innit <- floor_prob %>%
-  mutate(demg_prob = 0.7*((5/distance_Entr) +(3/distance_Cash)+ (7/hallway_Wide))) %>%
+  mutate(demg_prob = 0.7*((5/distance_Entr) +(3/distance_Cash)+ (7/hallway_Wide)-20*(-previous_dist/10))) %>%
     arrange(position)
 
 dmg_prob1 <- floor_innit %>%
