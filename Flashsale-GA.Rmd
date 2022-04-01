@@ -36,7 +36,7 @@ evalFunc <- function(x) {
 }
 
 iter = 200
-GAmodel <- rbga.bin(size = 7, popSize = 100, iters = iter, mutationChance = 0.03, 
+GAmodel <- rbga.bin(size = 7, popSize = 300, iters = iter, mutationChance = 0.03, 
     elitism = T, evalFunc = evalFunc)
 cat(summary(GAmodel))
 
@@ -44,7 +44,7 @@ cat(summary(GAmodel))
 ```
 
 ```{r}
-solution = c(1, 1, 0, 1, 1, 1, 1)
+solution = c(1, 1, 1, 1, 1, 0, 1)
 dataset[solution == 1, ]
 ```
 
@@ -54,7 +54,7 @@ cat(paste(solution %*% dataset$survivalpoints, "/", sum(dataset$survivalpoints))
 ```
 
 ```{r}
-cat(paste(solution %*% dataset$weight, "/", weightlimit))
+cat(paste(solution %*% dataset$weight, "/", sum(dataset$weight)))
 
 ```
 
